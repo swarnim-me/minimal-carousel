@@ -1,0 +1,33 @@
+.carousel-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+}
+
+.carousel-images {
+	display: flex;
+	gap: 40px;
+}
+
+.carousel-image {
+	width: 400px;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	opacity: 0.4;
+	flex-shrink: 0;
+}
+
+.active {
+	opacity: 1;
+	transform: scale(1.1);
+}
+
+.left-arrow,
+.right-arrow {
+	height: 40px;
+	aspect-ratio: 1 / 1;
+}
+
+.left-arrow {
+	transform: scaleX(-1);
+}

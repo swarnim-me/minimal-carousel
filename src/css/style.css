@@ -23,9 +23,15 @@
 main {
 	width: 100vw;
 	height: 100vh;
+	overflow: hidden;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.app-title {
+	margin-bottom: 40px;
 }
 
 .app-title h1,

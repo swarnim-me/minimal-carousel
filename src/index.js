@@ -1,3 +1,2 @@
 import "./css/style.css";
-
-console.log("Hello, world");
+import "./js/image-carousel";
