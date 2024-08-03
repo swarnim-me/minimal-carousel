@@ -1,3 +1,49 @@
-body {
-	background: black;
+:root {
+	--font-clr: #252525;
+	--background-clr: #ffffff;
+	--gray-clr: #d9d9d9;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: "Roboto-Black";
+	src: url("../assets/fonts/Roboto-Black.ttf");
+}
+
+@font-face {
+	font-family: "Playfair";
+	src: url("../assets/fonts/PlayfairDisplay-VariableFont_wght.ttf");
+}
+
+main {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.app-title h1,
+.app-title h3 {
+	color: var(--font-clr);
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.app-title h3 {
+	font-family: "Roboto-Black";
+	font-size: 2rem;
+	letter-spacing: 8px;
+	font-size: clamp(1rem, 4vw, 2rem);
+}
+
+.app-title h1 {
+	font-family: "Playfair";
+	font-weight: 400;
+	font-size: clamp(2rem, 9vw, 6rem);
 }
