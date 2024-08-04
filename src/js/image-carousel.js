@@ -11,6 +11,7 @@ class ImageCarousel {
 		this.carouselImagesEle = document.querySelector(".carousel-images");
 		this.leftArrow = document.querySelector(".left-arrow");
 		this.rightArrow = document.querySelector(".right-arrow");
+		this.carouselIndexes = document.querySelector(".carousel-indexes");
 		this.IMAGE_WIDTH = 400;
 		this.multiplier = 0;
 		this.activeIndex = 2;
@@ -22,6 +23,8 @@ class ImageCarousel {
 			background5,
 		];
 		this.loadImages();
+		this.setupCarouselIndexes();
+		this.setIndexAsActive();
 		this.bindEvents();
 	}
 
@@ -43,29 +46,51 @@ class ImageCarousel {
 	shiftCarousel = (value) => {
 		const newIndex = this.activeIndex + value;
 		if (newIndex >= 0 && newIndex < this.images.length) {
-			this.updateActiveIndex(newIndex, value);
+			this.updateActiveIndex(newIndex);
 		}
 	};
 
 	getActiveImages = () =>
 		Array.from(document.querySelectorAll(".carousel-image"));
 
-	updateActiveIndex = (newIndex, direction) => {
+	updateActiveIndex = (newIndex) => {
+		const incrementValue = newIndex - this.activeIndex;
 		this.activeIndex = newIndex;
 		const imagesEle = this.getActiveImages();
 		imagesEle.forEach((imageEle, index) => {
 			if (index === newIndex) imagesEle[index].classList.add("active");
 			else imagesEle[index].classList.remove("active");
 		});
-		if (direction < 0) this.multiplier -= 1;
-		else this.multiplier += 1;
+		this.multiplier += incrementValue;
 		this.carouselImagesEle.style.transform = `translateX(${
 			-1 * this.IMAGE_WIDTH * this.multiplier
 		}px)`;
-		// this.multiplier = Math.max(0, this.multiplier + direction * -1);
-		// if (direction < 0) this.multiplier += 1;
-		// else this.multiplier -= 1;
+		this.setIndexAsActive();
 	};
+
+	setupCarouselIndexes() {
+		// <div class="carousel-index" data-index="1"></div>
+		this.images.forEach((image, index) => {
+			const carouselIndex = document.createElement("div");
+			carouselIndex.classList.add("carousel-index");
+			carouselIndex.setAttribute("data-index", index);
+			carouselIndex.addEventListener("click", () => {
+				this.updateActiveIndex(index);
+			});
+			this.carouselIndexes.appendChild(carouselIndex);
+		});
+	}
+
+	setIndexAsActive() {
+		const allIndexes = Array.from(
+			document.querySelectorAll(".carousel-index")
+		);
+		allIndexes.forEach((carouselIndex, index) => {
+			if (Number(carouselIndex.dataset.index) === this.activeIndex)
+				allIndexes[index].classList.add("active");
+			else carouselIndex.classList.remove("active");
+		});
+	}
 }
 
 export default new ImageCarousel();
