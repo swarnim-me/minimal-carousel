@@ -114,6 +114,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 	--gray-clr: #d9d9d9;
 }
 
+.dark-mode {
+	--background-clr: #1b1b1b;
+	--font-clr: #ffffff;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -131,9 +136,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 }
 
 main {
+	background: var(--background-clr);
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -163,7 +170,22 @@ main {
 	font-weight: 400;
 	font-size: clamp(2rem, 9vw, 6rem);
 }
-`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;CACzB,mBAAmB;AACpB;;AAEA;CACC,UAAU;CACV,SAAS;CACT,sBAAsB;AACvB;;AAEA;CACC,2BAA2B;CAC3B,4CAA4C;AAC7C;;AAEA;CACC,uBAAuB;CACvB,4CAAiE;AAClE;;AAEA;CACC,YAAY;CACZ,aAAa;CACb,gBAAgB;CAChB,aAAa;CACb,sBAAsB;CACtB,uBAAuB;CACvB,mBAAmB;AACpB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;;CAEC,sBAAsB;CACtB,kBAAkB;CAClB,yBAAyB;AAC1B;;AAEA;CACC,2BAA2B;CAC3B,eAAe;CACf,mBAAmB;CACnB,iCAAiC;AAClC;;AAEA;CACC,uBAAuB;CACvB,gBAAgB;CAChB,iCAAiC;AAClC","sourcesContent":[":root {\n\t--font-clr: #252525;\n\t--background-clr: #ffffff;\n\t--gray-clr: #d9d9d9;\n}\n\n* {\n\tpadding: 0;\n\tmargin: 0;\n\tbox-sizing: border-box;\n}\n\n@font-face {\n\tfont-family: \"Roboto-Black\";\n\tsrc: url(\"../assets/fonts/Roboto-Black.ttf\");\n}\n\n@font-face {\n\tfont-family: \"Playfair\";\n\tsrc: url(\"../assets/fonts/PlayfairDisplay-VariableFont_wght.ttf\");\n}\n\nmain {\n\twidth: 100vw;\n\theight: 100vh;\n\toverflow: hidden;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n}\n\n.app-title {\n\tmargin-bottom: 40px;\n}\n\n.app-title h1,\n.app-title h3 {\n\tcolor: var(--font-clr);\n\ttext-align: center;\n\ttext-transform: uppercase;\n}\n\n.app-title h3 {\n\tfont-family: \"Roboto-Black\";\n\tfont-size: 2rem;\n\tletter-spacing: 8px;\n\tfont-size: clamp(1rem, 4vw, 2rem);\n}\n\n.app-title h1 {\n\tfont-family: \"Playfair\";\n\tfont-weight: 400;\n\tfont-size: clamp(2rem, 9vw, 6rem);\n}\n"],"sourceRoot":""}]);
+
+.theme-btn {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+.theme-btn img {
+	width: 30px;
+	aspect-ratio: 1 / 1;
+}
+
+.dark-mode .icon {
+	filter: invert();
+}
+`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;CACzB,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;CACzB,mBAAmB;AACpB;;AAEA;CACC,UAAU;CACV,SAAS;CACT,sBAAsB;AACvB;;AAEA;CACC,2BAA2B;CAC3B,4CAA4C;AAC7C;;AAEA;CACC,uBAAuB;CACvB,4CAAiE;AAClE;;AAEA;CACC,iCAAiC;CACjC,YAAY;CACZ,aAAa;CACb,gBAAgB;CAChB,kBAAkB;CAClB,aAAa;CACb,sBAAsB;CACtB,uBAAuB;CACvB,mBAAmB;AACpB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;;CAEC,sBAAsB;CACtB,kBAAkB;CAClB,yBAAyB;AAC1B;;AAEA;CACC,2BAA2B;CAC3B,eAAe;CACf,mBAAmB;CACnB,iCAAiC;AAClC;;AAEA;CACC,uBAAuB;CACvB,gBAAgB;CAChB,iCAAiC;AAClC;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,WAAW;AACZ;;AAEA;CACC,WAAW;CACX,mBAAmB;AACpB;;AAEA;CACC,gBAAgB;AACjB","sourcesContent":[":root {\n\t--font-clr: #252525;\n\t--background-clr: #ffffff;\n\t--gray-clr: #d9d9d9;\n}\n\n.dark-mode {\n\t--background-clr: #1b1b1b;\n\t--font-clr: #ffffff;\n}\n\n* {\n\tpadding: 0;\n\tmargin: 0;\n\tbox-sizing: border-box;\n}\n\n@font-face {\n\tfont-family: \"Roboto-Black\";\n\tsrc: url(\"../assets/fonts/Roboto-Black.ttf\");\n}\n\n@font-face {\n\tfont-family: \"Playfair\";\n\tsrc: url(\"../assets/fonts/PlayfairDisplay-VariableFont_wght.ttf\");\n}\n\nmain {\n\tbackground: var(--background-clr);\n\twidth: 100vw;\n\theight: 100vh;\n\toverflow: hidden;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n}\n\n.app-title {\n\tmargin-bottom: 40px;\n}\n\n.app-title h1,\n.app-title h3 {\n\tcolor: var(--font-clr);\n\ttext-align: center;\n\ttext-transform: uppercase;\n}\n\n.app-title h3 {\n\tfont-family: \"Roboto-Black\";\n\tfont-size: 2rem;\n\tletter-spacing: 8px;\n\tfont-size: clamp(1rem, 4vw, 2rem);\n}\n\n.app-title h1 {\n\tfont-family: \"Playfair\";\n\tfont-weight: 400;\n\tfont-size: clamp(2rem, 9vw, 6rem);\n}\n\n.theme-btn {\n\tposition: absolute;\n\ttop: 20px;\n\tright: 20px;\n}\n\n.theme-btn img {\n\twidth: 30px;\n\taspect-ratio: 1 / 1;\n}\n\n.dark-mode .icon {\n\tfilter: invert();\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -811,6 +833,44 @@ class ImageCarousel {
 
 /***/ }),
 
+/***/ "./src/js/theme-helper.js":
+/*!********************************!*\
+  !*** ./src/js/theme-helper.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _assets_icons_sun_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/icons/sun.svg */ "./src/assets/icons/sun.svg");
+/* harmony import */ var _assets_icons_moon_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/icons/moon.svg */ "./src/assets/icons/moon.svg");
+
+
+
+class ThemeHelper {
+	constructor() {
+		this.themeBtn = document.querySelector(".theme-btn");
+		this.bindEvents();
+	}
+
+	bindEvents() {
+		this.themeBtn.addEventListener("click", this.changeTheme);
+	}
+
+	changeTheme = () => {
+		document.body.classList.toggle("dark-mode");
+		if (document.body.classList.contains("dark-mode"))
+			this.themeBtn.children[0].setAttribute("src", _assets_icons_sun_svg__WEBPACK_IMPORTED_MODULE_0__);
+		else this.themeBtn.children[0].setAttribute("src", _assets_icons_moon_svg__WEBPACK_IMPORTED_MODULE_1__);
+	};
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new ThemeHelper());
+
+
+/***/ }),
+
 /***/ "./src/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf":
 /*!****************************************************************!*\
   !*** ./src/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf ***!
@@ -828,6 +888,26 @@ module.exports = __webpack_require__.p + "bf46a6bcddc9999a295e.ttf";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "4afbed674a5252ead176.ttf";
+
+/***/ }),
+
+/***/ "./src/assets/icons/moon.svg":
+/*!***********************************!*\
+  !*** ./src/assets/icons/moon.svg ***!
+  \***********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "assets/26ae816d05017d9e03dc.svg";
+
+/***/ }),
+
+/***/ "./src/assets/icons/sun.svg":
+/*!**********************************!*\
+  !*** ./src/assets/icons/sun.svg ***!
+  \**********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "assets/5e3569ae5860a834ad67.svg";
 
 /***/ }),
 
@@ -1025,6 +1105,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/style.css */ "./src/css/style.css");
 /* harmony import */ var _js_image_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/image-carousel */ "./src/js/image-carousel.js");
+/* harmony import */ var _js_theme_helper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/theme-helper */ "./src/js/theme-helper.js");
+
 
 
 
