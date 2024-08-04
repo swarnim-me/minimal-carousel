@@ -4,6 +4,11 @@
 	--gray-clr: #d9d9d9;
 }
 
+.dark-mode {
+	--background-clr: #1b1b1b;
+	--font-clr: #ffffff;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -21,9 +26,11 @@
 }
 
 main {
+	background: var(--background-clr);
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -52,4 +59,19 @@ main {
 	font-family: "Playfair";
 	font-weight: 400;
 	font-size: clamp(2rem, 9vw, 6rem);
+}
+
+.theme-btn {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+.theme-btn img {
+	width: 30px;
+	aspect-ratio: 1 / 1;
+}
+
+.dark-mode .icon {
+	filter: invert();
 }
